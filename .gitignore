@@ -2,3 +2,5 @@
 node_modules/
 .vercel/
 src-img/*.tmp
+.vercel
+.env*
