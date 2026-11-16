@@ -63,7 +63,7 @@ async def main():
         ctx = await b.new_context(viewport={'width': 1440, 'height': 900}, reduced_motion='reduce')
         pg = await ctx.new_page(); await pg.goto(URL); await pg.wait_for_timeout(500)
         check('mouvement réduit · pas d\'ouverture, contenu visible', await pg.locator('#intro').count() == 0 and await pg.evaluate("document.documentElement.classList.contains('pret')"))
-        for u, code in [('/mentions-legales', 200), ('/page-qui-nexiste-pas', 404), ('/favicon.ico', 200), ('/apple-touch-icon.png', 200), ('/robots.txt', 200), ('/sitemap.xml', 200), ('/llms.txt', 200), ('/og.jpg', 200)]:
+        for u, code in [('/mentions-legales.html', 200), ('/page-qui-nexiste-pas', 404), ('/favicon.ico', 200), ('/apple-touch-icon.png', 200), ('/robots.txt', 200), ('/sitemap.xml', 200), ('/llms.txt', 200), ('/og.jpg', 200)]:
             r = await pg.request.get(URL.rstrip('/') + u)
             check(f'fichier {u} → {code}', r.status == code, str(r.status))
         await b.close()
