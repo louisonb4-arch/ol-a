@@ -6,7 +6,7 @@ Site du restaurant Olea (kaakeh libanaise, 16 rue de la Juiverie, Nantes). HTML/
 ```bash
 python3 -m http.server 8000   # puis http://localhost:8000
 ```
-(Les chemins sont absolus `/img/...` : ouvrir via un petit serveur, pas en double-clic.)
+Ou double-clic sur « Ouvrir le site.command » (macOS). En double-clic direct sur index.html, la police Quicksand est bloquée par Chrome.
 
 ## Modifier
 - Textes et carte : `index.html`
