@@ -24,4 +24,4 @@ Ou double-clic sur « Ouvrir le site.command » (macOS). En double-clic direct s
 
 ## À compléter
 - Mentions légales : forme juridique, SIRET, directeur de la publication.
-- Domaine définitif : remplacer `olea-site.vercel.app` (canonical, OG, sitemap, robots, JSON-LD).
+- Domaine définitif : remplacer `ol-a.vercel.app` (canonical, OG, sitemap, robots, JSON-LD).

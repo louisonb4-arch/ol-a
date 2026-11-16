@@ -35,6 +35,13 @@ async def main():
             check(f'{nom} · composer : falafel', nomK == 'Kaakeh falafel' and chk == 'falafel' and ok_img)
             n_vis = await pg.evaluate("[...document.querySelectorAll('.plat')].filter(p=>getComputedStyle(p).opacity>'0.5').length")
             check(f'{nom} · une seule assiette visible', n_vis == 1, str(n_vis))
+            bloques = await pg.evaluate("[...document.querySelectorAll('#choix button')].filter(b=>{b.scrollIntoView({block:'center'});const r=b.getBoundingClientRect();const e=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);return !(e&&b.contains(e))}).map(b=>b.dataset.k)")
+            check(f'{nom} · tous les boutons cliquables', not bloques, ','.join(bloques))
+            for k in ['kafta','zaatar','poulet','royale','falafel','fromage','halloumi']:
+                await pg.locator(f'#choix button[data-k="{k}"]').click(timeout=3000); await pg.wait_for_timeout(90)
+            await pg.wait_for_timeout(1500)
+            rap = await pg.evaluate("[document.querySelector('#choix [aria-checked=true]').dataset.k,[...document.querySelectorAll('.plat')].filter(p=>getComputedStyle(p).opacity>'0.5').map(p=>p.dataset.k).join(',')]")
+            check(f'{nom} · clics rapides', rap[0]=='halloumi' and rap[1]=='halloumi', str(rap))
             await pg.focus('#choix button[data-k="falafel"]'); await pg.keyboard.press('ArrowDown'); await pg.wait_for_timeout(300)
             check(f'{nom} · composer au clavier', await pg.evaluate("document.querySelector('#choix [aria-checked=true]').dataset.k") == 'zaatar')
             if W < 1100:

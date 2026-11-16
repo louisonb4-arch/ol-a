@@ -228,7 +228,7 @@ if (assiette) {
     i.alt = `${K[k].nom} vue du dessus : ${K[k].ing.join(', ').toLowerCase()}`; i.loading = 'eager';
     assiette.appendChild(p); return plats[k] = p;
   };
-  let courant = 'zaatar', angle = 0;
+  let courant = 'zaatar', angle = 0, tour = 0;
   const fiche = k => {
     const d = K[k];
     $('#kNom').textContent = d.nom; $('#kDesc').textContent = d.desc;
@@ -246,9 +246,10 @@ if (assiette) {
     const sortie = angle + dir * 120; angle -= dir * 120;
     ancien.getAnimations().forEach(a => a.cancel()); nouveau.getAnimations().forEach(a => a.cancel());
     ancien.animate([{ transform: `translateX(0) rotate(${angle + dir * 120}deg)`, opacity: 1 }, { transform: `translateX(${-dir * 55}%) rotate(${sortie}deg) scale(.86)`, opacity: 0 }], { duration: 750, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' })
-      .onfinish = () => { if (ancien.dataset.k !== courant) ancien.classList.remove('actif'); };
+      .onfinish = () => { if (ancien.dataset.k !== courant) { ancien.classList.remove('actif'); ancien.getAnimations().forEach(a => a.cancel()); } };
     nouveau.classList.add('actif');
-    const go = () => nouveau.animate([{ transform: `translateX(${dir * 55}%) rotate(${angle - dir * 120}deg) scale(.86)`, opacity: 0 }, { transform: `translateX(0) rotate(${angle}deg) scale(1)`, opacity: 1 }], { duration: 900, delay: 120, easing: 'cubic-bezier(.2,.9,.25,1)', fill: 'both' });
+    const jeton = ++tour;
+    const go = () => { if (jeton !== tour) return; nouveau.animate([{ transform: `translateX(${dir * 55}%) rotate(${angle - dir * 120}deg) scale(.86)`, opacity: 0 }, { transform: `translateX(0) rotate(${angle}deg) scale(1)`, opacity: 1 }], { duration: 900, delay: 120, easing: 'cubic-bezier(.2,.9,.25,1)', fill: 'both' }); };
     const img = $('img', nouveau);
     img.complete ? go() : (img.decode ? img.decode().then(go, go) : go());
     $('.scene-prix').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 600, delay: 300, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' });
