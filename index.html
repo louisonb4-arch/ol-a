@@ -22,7 +22,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="img/fromage-720.avif" type="image/avif" imagesrcset="img/fromage-320.avif 320w, img/fromage-480.avif 480w, img/fromage-720.avif 720w, img/fromage-960.avif 894w" imagesizes="(max-width: 760px) 46vw, 30vw" fetchpriority="high">
-<link rel="stylesheet" href="css/styles.min.css?v=1794844761">
+<link rel="stylesheet" href="css/styles.min.css?v=1794846232">
 <script>
 document.documentElement.className='js';
 try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.getItem('olea-intro'))document.documentElement.classList.add('sans-intro');else sessionStorage.setItem('olea-intro','1')}catch(e){document.documentElement.classList.add('sans-intro')}
@@ -142,29 +142,24 @@ try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.ge
       <h2 class="titre titre-anime">Compose ta <em>kaakeh</em></h2>
     </div>
     <div class="atelier">
-      <div class="plateau-wrap">
-        <svg class="plateau" id="plateau" viewBox="0 0 400 400" role="img" aria-labelledby="kNom">
-          <defs>
-            <radialGradient id="pain" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#E9D3A6"/><stop offset=".8" stop-color="#D9B67C"/><stop offset="1" stop-color="#C79E62"/></radialGradient>
-          </defs>
-          <circle class="assiette" cx="200" cy="200" r="196"/>
-          <circle class="assiette-in" cx="200" cy="200" r="176"/>
-          <g id="galette"><path class="galette" d=""/><g id="sesame"></g></g>
-          <g id="garniture"></g>
-        </svg>
-        <p class="plateau-aide" aria-hidden="true">Illustration de la garniture</p>
+      <div class="scene" id="scene">
+        <div class="scene-fond" aria-hidden="true"></div>
+        <div class="scene-assiette" id="assiette">
+          <picture class="plat actif" data-k="zaatar"><source type="image/avif" srcset="img/k-zaatar-440.avif 440w, img/k-zaatar-720.avif 720w" sizes="(max-width: 900px) 84vw, 40vw"><img src="img/k-zaatar-720.webp" srcset="img/k-zaatar-440.webp 440w, img/k-zaatar-720.webp 720w" sizes="(max-width: 900px) 84vw, 40vw" alt="Kaakeh zaatar vue du dessus : thym, sumac, tomates, menthe et olives sur une galette au sésame" width="720" height="720" loading="lazy" decoding="async"></picture>
+        </div>
+        <p class="scene-prix" aria-hidden="true"><span id="kPrixGrand">7,50</span><small>€</small></p>
       </div>
       <div class="choix">
         <div class="choix-liste" role="radiogroup" aria-label="Choisir une kaakeh" id="choix">
           <p class="choix-groupe">Classiques</p>
-          <button role="radio" aria-checked="true" data-k="zaatar"><span>Zaatar</span><i class="vg" title="Vegan">vegan</i><b>7,50 €</b></button>
-          <button role="radio" aria-checked="false" data-k="fromage"><span>Fromage & jambon</span><b>8,00 €</b></button>
-          <button role="radio" aria-checked="false" data-k="halloumi"><span>Halloumi</span><i class="vt" title="Végétarien">végé</i><b>9,00 €</b></button>
+          <button role="radio" aria-checked="true" data-k="zaatar"><img class="vignette" src="img/k-zaatar-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Zaatar</span><i class="vg">vegan</i><b>7,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="fromage"><img class="vignette" src="img/k-fromage-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Fromage & jambon</span><b>8,00 €</b></button>
+          <button role="radio" aria-checked="false" data-k="halloumi"><img class="vignette" src="img/k-halloumi-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Halloumi</span><i class="vt">végé</i><b>9,00 €</b></button>
           <p class="choix-groupe">Gourmandes</p>
-          <button role="radio" aria-checked="false" data-k="royale"><span>Royale</span><b>10,00 €</b></button>
-          <button role="radio" aria-checked="false" data-k="kafta"><span>Kafta</span><b>11,50 €</b></button>
-          <button role="radio" aria-checked="false" data-k="poulet"><span>Poulet</span><b>11,50 €</b></button>
-          <button role="radio" aria-checked="false" data-k="falafel"><span>Falafel</span><i class="vg" title="Vegan">vegan</i><b>11,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="royale"><img class="vignette" src="img/k-royale-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Royale</span><b>10,00 €</b></button>
+          <button role="radio" aria-checked="false" data-k="kafta"><img class="vignette" src="img/k-kafta-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Kafta</span><b>11,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="poulet"><img class="vignette" src="img/k-poulet-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Poulet</span><b>11,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="falafel"><img class="vignette" src="img/k-falafel-440.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span>Falafel</span><i class="vg">vegan</i><b>11,50 €</b></button>
         </div>
         <div class="fiche" aria-live="polite">
           <h3 id="kNom">Kaakeh zaatar</h3>
@@ -338,6 +333,6 @@ try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.ge
   <a href="https://www.google.com/maps/dir/?api=1&destination=Olea+16+rue+de+la+Juiverie+44000+Nantes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Itinéraire</a>
 </nav>
 
-<script src="js/main.min.js?v=1794844761" defer></script>
+<script src="js/main.min.js?v=1794846232" defer></script>
 </body>
 </html>

@@ -151,23 +151,33 @@ html.menu-ouvert .statut{visibility:hidden}
 .carte-pile .voile{position:absolute;inset:0;border-radius:inherit;background:var(--olive);opacity:0;pointer-events:none}
 
 /* ───── Composer ───── */
-.composer{padding:clamp(90px,11vw,170px) 0;background:var(--creme)}
-.atelier{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
-.plateau-wrap{position:relative}
-.plateau{width:100%;max-width:560px;margin:0 auto;display:block;overflow:visible}
-.assiette{fill:var(--pita)}
-.assiette-in{fill:none;stroke:rgba(35,39,30,.08);stroke-width:1.5}
-#galette{transform-origin:200px 200px;transition:transform 1.1s var(--ease)}
-.galette{fill:url(#pain);stroke:#B98D55;stroke-width:1.5}
-#sesame ellipse{fill:#F7EBCF;stroke:#C9A673;stroke-width:.6}
-#garniture g.ing{transform-box:fill-box;transform-origin:center}
-.plateau-aide{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.composer{padding:clamp(90px,11vw,170px) 0;background:var(--creme);overflow-x:clip}
+.atelier{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,100px);align-items:center}
+.scene{position:relative;aspect-ratio:1;max-width:620px;width:100%;margin:0 auto}
+.scene-fond{position:absolute;inset:6%;border-radius:50%;background:var(--sauge-xc)}
+.scene-fond::before{content:"";position:absolute;inset:-5%;border-radius:50%;border:1.5px dashed rgba(86,101,63,.35)}
+.scene-assiette{position:absolute;inset:0;display:grid;filter:drop-shadow(0 26px 30px rgba(44,51,36,.22)) drop-shadow(0 6px 8px rgba(44,51,36,.12))}
+.plat{grid-area:1/1;opacity:0;will-change:transform,opacity}
+.plat.actif{opacity:1}
+.plat img{width:100%;height:auto;aspect-ratio:1}
+.scene-prix{position:absolute;right:2%;bottom:6%;width:clamp(86px,9vw,118px);aspect-ratio:1;border-radius:50%;background:var(--olive);color:var(--creme);display:flex;align-items:center;justify-content:center;font-weight:300;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-.03em;box-shadow:0 12px 30px rgba(31,36,26,.25);rotate:-8deg}
+.scene-prix small{font-size:.5em;margin-left:2px;transform:translateY(-.5em)}
+.js .scene .scene-assiette{opacity:0;transform:translateX(18%) rotate(-70deg) scale(.9);transition:opacity .9s var(--ease),transform 1.4s cubic-bezier(.2,.9,.25,1)}
+.js .scene .scene-fond{transform:scale(.7);opacity:0;transition:transform 1.2s var(--ease),opacity .8s var(--ease)}
+.js .scene .scene-prix{scale:0;transition:scale .8s cubic-bezier(.3,1.5,.5,1) .7s}
+.js .scene.vu .scene-assiette{opacity:1;transform:none}
+.js .scene.vu .scene-fond{transform:none;opacity:1}
+.js .scene.vu .scene-prix{scale:1}
 .choix-liste{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .choix-groupe{grid-column:1/-1;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--sauge-f);margin:18px 0 6px}
 .choix-groupe:first-child{margin-top:0}
-.choix-liste button{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;width:100%;padding:14px 18px;border-radius:16px;text-align:left;font-weight:600;font-size:16px;letter-spacing:.02em;background:transparent;box-shadow:inset 0 0 0 1.5px rgba(35,39,30,.1);transition:background-color .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease)}
-.choix-liste button span{flex:1 1 100%}
-.choix-liste button b{margin-left:auto}
+.choix-liste button{display:grid;grid-template-columns:44px 1fr auto;grid-template-rows:auto auto;align-items:center;column-gap:12px;row-gap:2px;width:100%;padding:10px 14px 10px 10px;border-radius:16px;text-align:left;font-weight:600;font-size:16px;letter-spacing:.02em;background:transparent;box-shadow:inset 0 0 0 1.5px rgba(35,39,30,.1);transition:background-color .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease)}
+.choix-liste button span{grid-column:2;line-height:1.25}
+.choix-liste button b{grid-column:3;grid-row:1/3}
+.choix-liste button i{grid-column:2;justify-self:start}
+.vignette{grid-row:1/3;width:44px;height:44px;border-radius:50%;transition:transform .6s var(--ease)}
+.choix-liste button:hover .vignette{transform:rotate(-25deg) scale(1.06)}
+.choix-liste button[aria-checked="true"] .vignette{transform:rotate(30deg);box-shadow:0 0 0 2px var(--sauge-c)}
 .choix-liste button b{font-weight:600;color:var(--sauge-f);transition:color .35s}
 .choix-liste button:hover{box-shadow:inset 0 0 0 1.5px rgba(35,39,30,.3)}
 .choix-liste button[aria-checked="true"]{background:var(--olive);color:var(--creme);box-shadow:none}
@@ -329,7 +339,7 @@ html.menu-ouvert .statut{visibility:hidden}
   .kaakeh-intro{position:static}
   .galette-deco{display:none}
   .atelier{grid-template-columns:1fr}
-  .plateau{max-width:440px}
+  
   .formules{grid-template-columns:1fr}
   .infos-grille{grid-template-columns:1fr}
 }
@@ -352,9 +362,11 @@ html.menu-ouvert .statut{visibility:hidden}
   .carte-pile h3{margin:8px 0}
   .choix-liste{grid-template-columns:1fr 1fr}
   .choix-groupe{grid-column:1/-1}
-  .choix-liste button{flex-wrap:wrap;gap:4px 8px;padding:13px 14px;font-size:15px}
-  .choix-liste button span{flex-basis:100%}
-  .choix-liste button b{order:3;font-size:14px}
+  .choix-liste button{grid-template-columns:38px 1fr;padding:9px 10px;font-size:14.5px;column-gap:10px}
+  .vignette{width:38px;height:38px}
+  .choix-liste button b{grid-column:2;grid-row:auto;font-size:13.5px}
+  .choix-liste button i{display:none}
+  .scene{max-width:440px}
   .formules{grid-template-columns:1fr}
   .colonnes{grid-template-columns:1fr}
   .gourmandises{grid-template-columns:1fr 1fr}

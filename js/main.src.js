@@ -204,143 +204,79 @@ if (deco) for (let i = 0; i < 46; i++) {
   deco.appendChild(e);
 }
 
-/* ── Compose ta kaakeh ── */
-const plateau = $('#plateau');
-if (plateau) {
-  // pseudo-aléatoire reproductible
-  const graine = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return () => { h = Math.imul(h ^ (h >>> 15), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); return ((h ^= h >>> 16) >>> 0) / 4294967296; }; };
-  // galette au bord irrégulier
-  let d = '';
-  for (let i = 0; i <= 72; i++) {
-    const a = i / 72 * Math.PI * 2, r = 158 + 3.2 * Math.sin(a * 7) + 2 * Math.sin(a * 13 + 1);
-    d += (i ? 'L' : 'M') + (200 + r * Math.cos(a)).toFixed(1) + ',' + (200 + r * Math.sin(a)).toFixed(1);
-  }
-  $('.galette', plateau).setAttribute('d', d + 'Z');
-  const ses = $('#sesame'), rnd0 = graine('sesame');
-  for (let i = 0; i < 95; i++) {
-    const a = rnd0() * Math.PI * 2, r = Math.sqrt(rnd0()) * 146, x = 200 + r * Math.cos(a), y = 200 + r * Math.sin(a);
-    ses.insertAdjacentHTML('beforeend', `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="3.4" ry="1.9" transform="rotate(${(rnd0() * 180).toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})"/>`);
-  }
-
-  const L = '#3D4630';
-  const ING = {
-    tomate: { nom: 'Tomates', r: 22, svg: `<circle r="21" fill="#E2836B" stroke="${L}" stroke-width="1.6"/><circle r="15" fill="#EFA48F"/><path d="M0-12V12M-11 6 11-6M-11-6 11 6" stroke="#E2836B" stroke-width="3" stroke-linecap="round"/><g fill="#F7DCB5"><ellipse cx="6" cy="-7" rx="2" ry="3"/><ellipse cx="-7" cy="5" rx="2" ry="3"/><ellipse cx="7" cy="6" rx="2" ry="3"/><ellipse cx="-6" cy="-7" rx="2" ry="3"/></g>` },
-    menthe: { nom: 'Menthe', r: 14, svg: `<path d="M0 15C-12 6-10-10 0-16 10-10 12 6 0 15z" fill="#9DB27A" stroke="${L}" stroke-width="1.4"/><path d="M0 13V-12" stroke="${L}" stroke-width="1" fill="none"/>` },
-    olive: { nom: 'Olives', r: 12, svg: `<ellipse rx="9" ry="12" fill="#56603F" stroke="${L}" stroke-width="1.4"/><ellipse cx="-3" cy="-4" rx="2.5" ry="4" fill="#7E8A60"/>` },
-    fromage: { nom: 'Fromage fondant', r: 30, svg: `<path d="M-30-8C-22-26 18-28 28-12 36 0 22 20 4 22-14 26-34 10-30-8z" fill="#F4DE9E" stroke="${L}" stroke-width="1.6"/><path d="M-14 0c6 4 14 4 20-2" fill="none" stroke="#E2C46E" stroke-width="2.4" stroke-linecap="round"/>` },
-    jambon: { nom: 'Jambon', r: 26, svg: `<circle r="25" fill="#EDB3A6" stroke="${L}" stroke-width="1.6"/><path d="M-14-8c8 6 14-2 22 4M-10 10c6-4 12 2 18-2" fill="none" stroke="#F7D7CE" stroke-width="3" stroke-linecap="round"/>` },
-    halloumi: { nom: 'Halloumi grillé', r: 26, svg: `<rect x="-26" y="-15" width="52" height="30" rx="7" fill="#F5EBD3" stroke="${L}" stroke-width="1.6"/><path d="M-16-15-6 15M-2-15 8 15M12-15 20 9" stroke="#C99A5F" stroke-width="3" stroke-linecap="round"/>` },
-    salade: { nom: 'Salade', r: 22, svg: `<path d="M-22 4c-2-10 6-18 14-14 2-8 14-8 16 0 8-2 14 8 8 14 4 8-4 14-12 10-6 6-16 4-18-2-8 0-12-4-8-8z" fill="#C6D69E" stroke="${L}" stroke-width="1.5"/><path d="M-12 8 12-6M-4 3l2 8M4-2l3 8" stroke="#8FA65E" stroke-width="1.3" fill="none" stroke-linecap="round"/>` },
-    mais: { nom: 'Maïs', r: 6, svg: `<rect x="-5" y="-5" width="10" height="10" rx="3.5" fill="#F2CD5C" stroke="${L}" stroke-width="1.2"/>` },
-    cornichon: { nom: 'Cornichons', r: 18, svg: `<ellipse rx="19" ry="8" fill="#8E9F5C" stroke="${L}" stroke-width="1.5"/><g fill="#B6C482"><circle cx="-9" cy="-1" r="1.5"/><circle cx="-2" cy="2" r="1.5"/><circle cx="6" cy="-2" r="1.5"/><circle cx="12" cy="1" r="1.5"/></g>` },
-    kafta: { nom: 'Kafta', r: 32, svg: `<rect x="-32" y="-10" width="64" height="20" rx="10" fill="#8F583F" stroke="${L}" stroke-width="1.6"/><path d="M-20-6v12M-8-6v12M4-6v12M16-6v12" stroke="#6E3F2C" stroke-width="2" stroke-linecap="round"/>` },
-    persil: { nom: 'Persil', r: 10, svg: `<g fill="#7FA05A" stroke="${L}" stroke-width="1"><circle cx="0" cy="-6" r="5"/><circle cx="-6" cy="3" r="5"/><circle cx="6" cy="3" r="5"/></g>` },
-    oignon: { nom: 'Oignons', r: 16, svg: `<path d="M-15 4a15 15 0 0 1 30 0" fill="none" stroke="#B57FA6" stroke-width="5" stroke-linecap="round"/><path d="M-9 4a9 9 0 0 1 18 0" fill="none" stroke="#D9B4CF" stroke-width="3.5" stroke-linecap="round"/>` },
-    poulet: { nom: 'Poulet grillé', r: 30, svg: `<path d="M-30 6C-18-10 14-14 30-4l-4 10C10-2-14 2-26 16z" fill="#D7A066" stroke="${L}" stroke-width="1.6"/><path d="M-14 0l-3 8M-2-4l-3 9M10-6l-2 8" stroke="#A86F3C" stroke-width="2.4" stroke-linecap="round"/>` },
-    falafel: { nom: 'Falafels', r: 17, svg: `<circle r="16" fill="#9C7A3E" stroke="${L}" stroke-width="1.6"/><g fill="#7C9A4C"><circle cx="-6" cy="-5" r="2"/><circle cx="5" cy="-7" r="1.6"/><circle cx="7" cy="5" r="2"/><circle cx="-4" cy="7" r="1.6"/></g><circle cx="1" cy="0" r="1.6" fill="#C9A96A"/>` },
-    zaatar: { nom: 'Zaatar & sumac', r: 0 },
-    huile: { nom: 'Huile d’olive', sauce: '#D4B54A' },
-    pesto: { nom: 'Sauce pesto', sauce: '#7F9D4C' },
-    mayo: { nom: 'Sauce mayo', sauce: '#FBF1D3' },
-    ail: { nom: 'Sauce à l’ail maison', sauce: '#FFF8E8' },
-    tahini: { nom: 'Sauce tahini', sauce: '#E9D2A6' },
-  };
+/* ── Compose ta kaakeh : assiettes illustrées qui tournent ── */
+const assiette = $('#assiette');
+if (assiette) {
   const K = {
-    zaatar: { nom: 'Kaakeh zaatar', desc: 'Thym, sumac, sésame et huile d’olive, avec tomates, menthe et olives.', f: 15, ing: [['zaatar'], ['tomate', 4], ['olive', 6], ['menthe', 6], ['huile']] },
-    fromage: { nom: 'Kaakeh fromage & jambon', desc: 'Galette garnie de fromage fondant et de jambon.', f: 15, ing: [['fromage', 4], ['jambon', 4]] },
-    halloumi: { nom: 'Kaakeh halloumi', desc: 'Fromage halloumi, tomates et sauce pesto.', f: 15, ing: [['halloumi', 5], ['tomate', 4], ['pesto']] },
-    royale: { nom: 'Kaakeh royale', desc: 'Fromage et jambon, avec salade, tomates, maïs, cornichons et sauce mayo.', f: 17, ing: [['salade', 4], ['fromage', 2], ['jambon', 3], ['tomate', 3], ['cornichon', 3], ['mais', 12], ['mayo']] },
-    kafta: { nom: 'Kaakeh kafta', desc: 'Viande hachée, persil et oignon, avec tomates, cornichon et sauce mayo.', f: 17, ing: [['kafta', 4], ['tomate', 3], ['oignon', 4], ['cornichon', 3], ['persil', 8], ['mayo']] },
-    poulet: { nom: 'Kaakeh poulet', desc: 'Poulet grillé aux épices, avec salade, cornichon et sauce à l’ail maison.', f: 17, ing: [['salade', 5], ['poulet', 6], ['cornichon', 3], ['ail']] },
-    falafel: { nom: 'Kaakeh falafel', desc: 'Falafels, salade, cornichon et sauce tahini.', f: 17, ing: [['salade', 5], ['falafel', 7], ['cornichon', 3], ['tahini']] },
+    zaatar: { nom: 'Kaakeh zaatar', prix: '7,50', desc: 'Thym, sumac, sésame et huile d’olive, avec tomates, menthe et olives.', f: 15, ing: ['Zaatar & sumac', 'Huile d’olive', 'Tomates', 'Menthe', 'Olives'] },
+    fromage: { nom: 'Kaakeh fromage & jambon', prix: '8,00', desc: 'Galette garnie de fromage fondant et de jambon.', f: 15, ing: ['Fromage fondant', 'Jambon'] },
+    halloumi: { nom: 'Kaakeh halloumi', prix: '9,00', desc: 'Fromage halloumi grillé, tomates et sauce pesto.', f: 15, ing: ['Halloumi grillé', 'Tomates', 'Pesto'] },
+    royale: { nom: 'Kaakeh royale', prix: '10,00', desc: 'Fromage et jambon, avec salade, tomates, maïs, cornichons et sauce mayo.', f: 17, ing: ['Fromage', 'Jambon', 'Salade', 'Tomates', 'Maïs', 'Cornichons', 'Mayo'] },
+    kafta: { nom: 'Kaakeh kafta', prix: '11,50', desc: 'Viande hachée, persil et oignon, avec tomates, cornichon et sauce mayo.', f: 17, ing: ['Kafta grillée', 'Persil', 'Oignon rouge', 'Tomates', 'Cornichons', 'Mayo'] },
+    poulet: { nom: 'Kaakeh poulet', prix: '11,50', desc: 'Poulet grillé aux épices, avec salade, cornichon et sauce à l’ail maison.', f: 17, ing: ['Poulet grillé', 'Salade', 'Cornichons', 'Sauce à l’ail'] },
+    falafel: { nom: 'Kaakeh falafel', prix: '11,50', desc: 'Falafels, salade, cornichon et sauce tahini.', f: 17, ing: ['Falafels', 'Salade', 'Cornichons', 'Tahini'] },
   };
-  const gar = $('#garniture'), galette = $('#galette');
-  let rot = 0, courant = null;
-
-  function places(nom) {
-    const rnd = graine(nom), pts = [], out = [];
-    K[nom].ing.forEach(([type, n = 1]) => {
-      const def = ING[type];
-      if (type === 'zaatar') {
-        for (let i = 0; i < 120; i++) { const a = rnd() * 6.283, r = Math.sqrt(rnd()) * 140; out.push({ brut: `<circle cx="${(200 + r * Math.cos(a)).toFixed(1)}" cy="${(200 + r * Math.sin(a)).toFixed(1)}" r="${(1.4 + rnd() * 1.8).toFixed(1)}" fill="${rnd() < .78 ? '#6F7F3E' : '#A8473A'}"/>`, fond: true }); }
-        return;
-      }
-      if (def.sauce) {
-        const P = [];
-        for (let i = 0; i < 9; i++) { const t = i / 8; P.push([96 + t * 208, 140 + t * 120 + (i % 2 ? -1 : 1) * (26 + rnd() * 14)]); }
-        let c = `M${P[0][0].toFixed(0)},${P[0][1].toFixed(0)}`;
-        for (let i = 1; i < P.length - 1; i++) { const mx = (P[i][0] + P[i + 1][0]) / 2, my = (P[i][1] + P[i + 1][1]) / 2; c += ` Q${P[i][0].toFixed(0)},${P[i][1].toFixed(0)} ${mx.toFixed(0)},${my.toFixed(0)}`; }
-        out.push({ brut: `<path d="${c}" fill="none" stroke="${type === 'huile' ? '#B8962E' : '#8C7B5A'}" stroke-width="${type === 'huile' ? 6 : 8}" stroke-linecap="round" opacity=".35"/><path d="${c}" fill="none" stroke="${def.sauce}" stroke-width="${type === 'huile' ? 3.5 : 5}" stroke-linecap="round" opacity="${type === 'huile' ? .85 : 1}"/>`, sauce: true });
-        return;
-      }
-      for (let k = 0; k < n; k++) {
-        let best = null;
-        for (let essai = 0; essai < 40; essai++) {
-          const a = rnd() * 6.283, r = Math.sqrt(rnd()) * (128 - def.r * .6), x = 200 + r * Math.cos(a), y = 200 + r * Math.sin(a);
-          const marge = pts.reduce((mn, q) => Math.min(mn, Math.hypot(q.x - x, q.y - y) - q.r - def.r * .75), 1e9);
-          if (!best || marge > best.marge) best = { x, y, marge };
-          if (marge > 6) break;
-        }
-        pts.push({ x: best.x, y: best.y, r: def.r * .75 });
-        out.push({ x: best.x, y: best.y, rot: rnd() * 360, s: .9 + rnd() * .25, svg: def.svg });
-      }
-    });
-    return out;
+  const ordre = Object.keys(K);
+  const modele = $('.plat', assiette);
+  const plats = { zaatar: modele };
+  const plat = k => {
+    if (plats[k]) return plats[k];
+    const p = modele.cloneNode(true);
+    p.classList.remove('actif'); p.dataset.k = k;
+    $('source', p).srcset = `img/k-${k}-440.avif 440w, img/k-${k}-720.avif 720w`;
+    const i = $('img', p); i.src = `img/k-${k}-720.webp`; i.srcset = `img/k-${k}-440.webp 440w, img/k-${k}-720.webp 720w`;
+    i.alt = `${K[k].nom} vue du dessus : ${K[k].ing.join(', ').toLowerCase()}`; i.loading = 'eager';
+    assiette.appendChild(p); return plats[k] = p;
+  };
+  let courant = 'zaatar', angle = 0;
+  const fiche = k => {
+    const d = K[k];
+    $('#kNom').textContent = d.nom; $('#kDesc').textContent = d.desc;
+    $('#kPrixGrand').textContent = d.prix;
+    $('#kIng').innerHTML = d.ing.map((n, i) => `<li style="animation-delay:${i * 45}ms">${n}</li>`).join('');
+    $('#kFormule').innerHTML = `En formule ${d.f === 15 ? 'classique' : 'gourmande'} : <b>${d.f} €</b> avec une entrée ou un dessert, et une boisson.`;
+  };
+  function choisir(k) {
+    if (k === courant) return;
+    const dir = ordre.indexOf(k) > ordre.indexOf(courant) ? 1 : -1;
+    const ancien = plats[courant], nouveau = plat(k);
+    $$('#choix button').forEach(b => { const on = b.dataset.k === k; b.setAttribute('aria-checked', on); b.tabIndex = on ? 0 : -1; });
+    fiche(k); courant = k;
+    if (calme) { ancien.classList.remove('actif'); nouveau.classList.add('actif'); return; }
+    const sortie = angle + dir * 120; angle -= dir * 120;
+    ancien.getAnimations().forEach(a => a.cancel()); nouveau.getAnimations().forEach(a => a.cancel());
+    ancien.animate([{ transform: `translateX(0) rotate(${angle + dir * 120}deg)`, opacity: 1 }, { transform: `translateX(${-dir * 55}%) rotate(${sortie}deg) scale(.86)`, opacity: 0 }], { duration: 750, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' })
+      .onfinish = () => { if (ancien.dataset.k !== courant) ancien.classList.remove('actif'); };
+    nouveau.classList.add('actif');
+    const go = () => nouveau.animate([{ transform: `translateX(${dir * 55}%) rotate(${angle - dir * 120}deg) scale(.86)`, opacity: 0 }, { transform: `translateX(0) rotate(${angle}deg) scale(1)`, opacity: 1 }], { duration: 900, delay: 120, easing: 'cubic-bezier(.2,.9,.25,1)', fill: 'both' });
+    const img = $('img', nouveau);
+    img.complete ? go() : (img.decode ? img.decode().then(go, go) : go());
+    $('.scene-prix').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 600, delay: 300, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' });
   }
-
-  function choisir(nom, anime = true) {
-    if (nom === courant) return; courant = nom;
-    const k = K[nom];
-    $$('#choix button').forEach(b => { const on = b.dataset.k === nom; b.setAttribute('aria-checked', on); b.tabIndex = on ? 0 : -1; });
-    $('#kNom').textContent = k.nom; $('#kDesc').textContent = k.desc;
-    const noms = k.ing.map(([t]) => ING[t].nom);
-    $('#kIng').innerHTML = noms.map((n, i) => `<li style="animation-delay:${i * 50}ms">${n}</li>`).join('');
-    $('#kFormule').innerHTML = `En formule ${k.f === 15 ? 'classique' : 'gourmande'} : <b>${k.f} €</b> avec une entrée ou un dessert, et une boisson.`;
-    const vieux = [...gar.children];
-    const bouge = anime && !calme;
-    vieux.forEach((g, i) => {
-      const inner = g.firstElementChild;
-      if (!bouge) return g.remove();
-      inner.animate([{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(.4)' }], { duration: 260, delay: Math.min(i * 6, 160), easing: 'ease-in', fill: 'forwards' }).onfinish = () => g.remove();
-    });
-    rot += 48; galette.style.transform = `rotate(${rot}deg)`;
-    const items = places(nom);
-    let n = 0;
-    items.forEach(it => {
-      const g = document.createElementNS(NS, 'g');
-      if (it.brut) g.innerHTML = `<g class="ing">${it.brut}</g>`;
-      else { g.setAttribute('transform', `translate(${it.x.toFixed(1)} ${it.y.toFixed(1)}) rotate(${it.rot.toFixed(0)}) scale(${it.s.toFixed(2)})`); g.innerHTML = `<g class="ing">${it.svg}</g>`; }
-      gar.appendChild(g);
-      if (!bouge) return;
-      const inner = g.firstElementChild;
-      const delai = 230 + (it.fond ? 0 : it.sauce ? 520 : (n++) * 32);
-      if (it.sauce) {
-        const ps = $$('path', inner); const len = ps[0].getTotalLength();
-        ps.forEach(p => p.animate([{ strokeDasharray: len, strokeDashoffset: len }, { strokeDasharray: len, strokeDashoffset: 0 }], { duration: 700, delay: delai, easing: 'cubic-bezier(.6,0,.3,1)', fill: 'both' }));
-      } else if (it.fond) {
-        inner.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500, delay: delai, fill: 'both' });
-      } else {
-        inner.animate([{ opacity: 0, transform: 'translateY(-46px) scale(1.4)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], { duration: 620, delay: delai, easing: 'cubic-bezier(.3,1.45,.5,1)', fill: 'both' });
-      }
-    });
-  }
+  fiche('zaatar');
   const boutons = $$('#choix button');
   boutons.forEach((b, i) => {
     b.addEventListener('click', () => choisir(b.dataset.k));
+    b.addEventListener('pointerenter', () => plat(b.dataset.k), { once: true });
     b.addEventListener('keydown', e => {
       const dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
       if (!dir) return; e.preventDefault();
       const n = boutons[(i + dir + boutons.length) % boutons.length]; n.focus(); choisir(n.dataset.k);
     });
   });
-  // première composition jouée quand l'atelier arrive à l'écran
-  choisir('zaatar', false);
-  [...gar.children].forEach(g => g.style.opacity = 0);
-  const premiere = new IntersectionObserver(es => {
-    if (!es[0].isIntersecting) return; premiere.disconnect();
-    courant = null; choisir('zaatar', true);
-  }, { threshold: .35 });
-  premiere.observe(plateau);
+  // entrée en scène + préchargement des autres assiettes quand l'atelier approche
+  const scene = $('#scene');
+  new IntersectionObserver((es, o) => {
+    if (!es[0].isIntersecting) return; o.disconnect();
+    scene.classList.add('vu');
+    (window.requestIdleCallback || setTimeout)(() => ordre.forEach(plat));
+  }, { rootMargin: '0px 0px -15% 0px' }).observe(scene);
+  // légère rotation de l'assiette au défilement
+  if (!calme) addEventListener('scroll', () => {
+    const r = scene.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight) return;
+    assiette.style.rotate = ((r.top + r.height / 2 - innerHeight / 2) * -0.04).toFixed(2) + 'deg';
+  }, { passive: true });
 }
 
 /* ── Carte Google chargée au clic (pas de requête Google avant) ── */
