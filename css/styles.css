@@ -319,12 +319,19 @@ html.menu-ouvert .statut{visibility:hidden}
   .hero-haut{grid-template-columns:1fr}
   .hero-cote{padding-bottom:0}
   .manifeste-grille{grid-template-columns:1fr}
+  .avis-grille{grid-template-columns:1fr}
+  .colonnes{grid-template-columns:1fr 1fr}
+  .col:last-child{grid-column:1/-1}
+  .col:last-child .dl-court{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,4vw,64px)}
+}
+@media (max-width:900px){
   .kaakeh-grille{grid-template-columns:1fr}
   .kaakeh-intro{position:static}
   .galette-deco{display:none}
   .atelier{grid-template-columns:1fr}
   .plateau{max-width:440px}
-  .avis-grille{grid-template-columns:1fr}
+  .formules{grid-template-columns:1fr}
+  .infos-grille{grid-template-columns:1fr}
 }
 @media (max-width:760px){
   body{font-size:16px}
@@ -369,7 +376,12 @@ html.menu-ouvert .statut{visibility:hidden}
   .barre-mobile svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
 }
 @media (max-width:380px){
-  .statut span{display:none}
+  .tete .statut span{display:none}
+}
+@media (max-width:560px){
+  .contacts li{flex-wrap:wrap}
+  .contacts .btn{margin-left:38px}
+  .col:last-child .dl-court{grid-template-columns:1fr}
 }
 .carte,.avis,.lieu{content-visibility:auto;contain-intrinsic-size:auto 1200px}
 @media (prefers-reduced-motion:reduce){
