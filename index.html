@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olea · Kaakeh libanaise faite maison à Nantes (Bouffay)</title>
+<meta name="description" content="Olea, spécialiste de la kaakeh libanaise à Nantes : galettes au sésame cuites chaque matin, mezzés et desserts faits maison, options vegan. 16 rue de la Juiverie.">
+<link rel="canonical" href="https://olea-site.vercel.app/">
+<meta name="theme-color" content="#87986E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Olea">
+<meta property="og:title" content="Olea · La kaakeh, comme à Beyrouth">
+<meta property="og:description" content="Street-food libanaise 100 % faite maison au cœur du Bouffay, à Nantes.">
+<meta property="og:url" content="https://olea-site.vercel.app/">
+<meta property="og:image" content="https://olea-site.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/img/fromage-720.avif" type="image/avif" imagesrcset="/img/fromage-320.avif 320w, /img/fromage-480.avif 480w, /img/fromage-720.avif 720w, /img/fromage-960.avif 894w" imagesizes="(max-width: 760px) 46vw, 30vw" fetchpriority="high">
+<link rel="stylesheet" href="/css/styles.min.css?v=1794843853">
+<script>
+document.documentElement.className='js';
+try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.getItem('olea-intro'))document.documentElement.classList.add('sans-intro');else sessionStorage.setItem('olea-intro','1')}catch(e){document.documentElement.classList.add('sans-intro')}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","@id":"https://olea-site.vercel.app/#restaurant","name":"Olea","description":"Spécialiste de la kaakeh libanaise. Plats 100 % faits maison, options végétariennes et vegan, sur place ou à emporter.","url":"https://olea-site.vercel.app/","image":"https://olea-site.vercel.app/og.jpg","logo":"https://olea-site.vercel.app/icon-512.png","servesCuisine":["Libanaise","Street-food"],"priceRange":"10–20 €","telephone":"+33625488467","acceptsReservations":true,"hasMenu":"https://olea-site.vercel.app/#carte","address":{"@type":"PostalAddress","streetAddress":"16 rue de la Juiverie","postalCode":"44000","addressLocality":"Nantes","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":47.215622,"longitude":-1.5532891},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.9,"reviewCount":176,"bestRating":5},"sameAs":["https://www.instagram.com/olea.nantes/"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"12:00","closes":"14:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"19:00","closes":"21:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"12:00","closes":"15:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"19:00","closes":"22:00"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<!-- Ouverture : l'olive se dessine puis s'ouvre sur le site (une fois par visite) -->
+<div class="intro" id="intro" aria-hidden="true">
+  <svg class="intro-wm" id="introWm" viewBox="0 0 590 282"></svg>
+  <p class="intro-sous">Cuisine libanaise · Nantes</p>
+</div>
+
+<header class="tete" id="tete">
+  <a class="tete-logo" href="#haut" aria-label="Olea, retour en haut"><img src="/img/olea-sage.svg" alt="" width="104" height="50"></a>
+  <nav class="tete-nav" aria-label="Navigation principale">
+    <a href="#kaakeh">La kaakeh</a><a href="#composer">Composer</a><a href="#carte">La carte</a><a href="#lieu">Le lieu</a><a href="#infos">Infos</a>
+  </nav>
+  <div class="tete-droite">
+    <span class="statut" data-statut><i></i><span data-statut-court>Horaires</span></span>
+    <a class="btn btn-plein btn-s" href="tel:+33625488467">Réserver</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menuMobile"><i></i><i></i></button>
+  </div>
+</header>
+<div class="menu-mobile" id="menuMobile" hidden>
+  <nav aria-label="Navigation mobile">
+    <a href="#kaakeh">La kaakeh</a><a href="#composer">Composer</a><a href="#carte">La carte</a><a href="#lieu">Le lieu</a><a href="#infos">Infos</a>
+  </nav>
+  <p>16 rue de la Juiverie, Nantes<br><a href="tel:+33625488467">06 25 48 84 67</a></p>
+</div>
+
+<main id="contenu">
+<span id="haut"></span>
+
+<!-- ───────── HERO ───────── -->
+<section class="hero">
+  <div class="cadre hero-haut">
+    <div>
+      <p class="sur-titre hero-el">Street-food libanaise · Bouffay, Nantes</p>
+      <h1 class="hero-titre"><span class="ligne"><span>La kaakeh,</span></span><span class="ligne"><span>comme à <em>Beyrouth.</em></span></span></h1>
+    </div>
+    <div class="hero-cote hero-el">
+      <p>Des galettes au sésame pétries et cuites chaque matin, garnies à la minute. Mezzés et douceurs 100&nbsp;% faits maison, sur place ou à emporter.</p>
+      <div class="hero-actions">
+        <a class="btn btn-plein" href="#composer">Composer ma kaakeh <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="lien-note" href="#avis"><span class="etoiles" aria-hidden="true">★★★★★</span> 4,9 · 176 avis Google</a>
+      </div>
+    </div>
+  </div>
+  <div class="cadre triptyque" id="triptyque">
+    <figure class="tp tp-g" data-vitesse="-0.06">
+      <picture><source type="image/avif" srcset="/img/facade-320.avif 320w, /img/facade-480.avif 480w, /img/facade-720.avif 720w, /img/facade-960.avif 960w" sizes="(max-width: 760px) 27vw, 26vw"><img src="/img/facade-960.jpg" alt="La façade d’Olea rue de la Juiverie, parasols rouges, en soirée" width="960" height="1282"></picture>
+      <figcaption>16 rue de la Juiverie</figcaption>
+    </figure>
+    <figure class="tp tp-c" data-vitesse="0">
+      <picture><source type="image/avif" srcset="/img/fromage-320.avif 320w, /img/fromage-480.avif 480w, /img/fromage-720.avif 720w, /img/fromage-960.avif 894w" sizes="(max-width: 760px) 46vw, 30vw"><img src="/img/fromage-960.jpg" alt="Kaakeh au fromage qui file, sur planche en bois" width="894" height="1194" fetchpriority="high"></picture>
+      <span class="sceau" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 20 20 9l13 11M10.5 17v14h19V17"/><path d="M16.5 31v-7h7v7"/></svg><b>Fait maison</b><small>chaque matin</small></span>
+    </figure>
+    <figure class="tp tp-d" data-vitesse="-0.14">
+      <picture><source type="image/avif" srcset="/img/houmous-320.avif 320w, /img/houmous-480.avif 480w, /img/houmous-720.avif 720w, /img/houmous-960.avif 894w" sizes="(max-width: 760px) 27vw, 26vw"><img src="/img/houmous-960.jpg" alt="Houmous maison au sumac dans une assiette libanaise" width="894" height="1194"></picture>
+      <figcaption>Houmous maison</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ───────── MANIFESTE ───────── -->
+<section class="manifeste">
+  <div class="cadre manifeste-grille">
+    <p class="manifeste-txt titre-anime">Après ses études, Tarek a voulu ramener un morceau de son Liban natal à Nantes. Il a ouvert Olea pour faire découvrir la kaakeh, une spécialité de Beyrouth encore inconnue ici.</p>
+    <ul class="engagements">
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24 24 10l16 14M12 20.5V39h24V20.5"/><path d="M20 39v-9h8v9"/></svg><b>100 % fait maison</b><span>Pains, mezzés, sauces et desserts.</span></li>
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M17 18h.5M27 15h.5M31 23h.5M20 26h.5M28 31h.5M16 32h.5M24 21h.5"/></svg><b>Cuits chaque matin</b><span>Nos kaakeh sortent du four sur place.</span></li>
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38C10 22 20 12 38 10c0 18-10 28-28 28z"/><path d="M10 38 26 22"/></svg><b>Végé & vegan</b><span>Zaatar, falafel, houmous, sfouf…</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───────── LA KAAKEH : cartes empilées ───────── -->
+<section class="kaakeh" id="kaakeh">
+  <div class="cadre kaakeh-grille">
+    <div class="kaakeh-intro">
+      <p class="sur-titre">La spécialité</p>
+      <h2 class="titre titre-anime">La kaakeh, c’est quoi&nbsp;?</h2>
+      <p class="rv">Une galette libanaise couverte de sésame, croustillante dehors, moelleuse dedans. À Beyrouth, on l’achète au coin de la rue. Chez Olea, on la garnit comme un repas.</p>
+      <svg class="galette-deco" viewBox="0 0 200 200" aria-hidden="true" id="galetteDeco"><circle cx="100" cy="100" r="84"/></svg>
+    </div>
+    <ol class="pile" id="pile">
+      <li class="carte-pile">
+        <picture><source type="image/avif" srcset="/img/pains-320.avif 320w, /img/pains-480.avif 480w, /img/pains-720.avif 720w, /img/pains-960.avif 894w" sizes="(max-width: 760px) calc(100vw - 64px), 24vw"><img src="/img/pains-960.jpg" alt="Kaakeh au sésame tout juste sorties du four" width="894" height="1194" loading="lazy"></picture>
+        <div><span class="num">01</span><h3>Pétrie au petit matin</h3><p>La pâte est préparée sur place chaque jour, puis façonnée en galettes rondes.</p></div>
+      </li>
+      <li class="carte-pile">
+        <picture><source type="image/avif" srcset="/img/stack-320.avif 320w, /img/stack-480.avif 480w, /img/stack-720.avif 720w, /img/stack-960.avif 894w" sizes="(max-width: 760px) calc(100vw - 64px), 24vw"><img src="/img/stack-960.jpg" alt="Pile de kaakeh garnies" width="894" height="1194" loading="lazy"></picture>
+        <div><span class="num">02</span><h3>Sésame & four chaud</h3><p>Le sésame grille, la galette gonfle et dore. C’est ce croustillant qui fait la kaakeh.</p></div>
+      </li>
+      <li class="carte-pile">
+        <picture><source type="image/avif" srcset="/img/viande-320.avif 320w, /img/viande-480.avif 480w, /img/viande-720.avif 720w, /img/viande-960.avif 894w" sizes="(max-width: 760px) calc(100vw - 64px), 24vw"><img src="/img/viande-960.jpg" alt="Kaakeh garnie de poulet, salade et cornichons" width="894" height="1194" loading="lazy"></picture>
+        <div><span class="num">03</span><h3>Garnie à la minute</h3><p>Zaatar, halloumi, poulet grillé aux épices, kafta ou falafel, avec crudités et sauces maison.</p></div>
+      </li>
+      <li class="carte-pile">
+        <picture><source type="image/avif" srcset="/img/fromage-320.avif 320w, /img/fromage-480.avif 480w, /img/fromage-720.avif 720w, /img/fromage-960.avif 894w" sizes="(max-width: 760px) calc(100vw - 64px), 24vw"><img src="/img/fromage-960.jpg" alt="Kaakeh au fromage fondant" width="894" height="1194" loading="lazy"></picture>
+        <div><span class="num">04</span><h3>Croustillante, fondante</h3><p>Le croquant du sésame, le cœur qui file. Sur place ou à emporter, toujours servie chaude.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ───────── COMPOSER ───────── -->
+<section class="composer" id="composer">
+  <div class="cadre">
+    <div class="entete">
+      <p class="sur-titre">Choisis ta garniture</p>
+      <h2 class="titre titre-anime">Compose ta <em>kaakeh</em></h2>
+    </div>
+    <div class="atelier">
+      <div class="plateau-wrap">
+        <svg class="plateau" id="plateau" viewBox="0 0 400 400" role="img" aria-labelledby="kNom">
+          <defs>
+            <radialGradient id="pain" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#E9D3A6"/><stop offset=".8" stop-color="#D9B67C"/><stop offset="1" stop-color="#C79E62"/></radialGradient>
+          </defs>
+          <circle class="assiette" cx="200" cy="200" r="196"/>
+          <circle class="assiette-in" cx="200" cy="200" r="176"/>
+          <g id="galette"><path class="galette" d=""/><g id="sesame"></g></g>
+          <g id="garniture"></g>
+        </svg>
+        <p class="plateau-aide" aria-hidden="true">Illustration de la garniture</p>
+      </div>
+      <div class="choix">
+        <div class="choix-liste" role="radiogroup" aria-label="Choisir une kaakeh" id="choix">
+          <p class="choix-groupe">Classiques</p>
+          <button role="radio" aria-checked="true" data-k="zaatar"><span>Zaatar</span><i class="vg" title="Vegan">vegan</i><b>7,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="fromage"><span>Fromage & jambon</span><b>8,00 €</b></button>
+          <button role="radio" aria-checked="false" data-k="halloumi"><span>Halloumi</span><i class="vt" title="Végétarien">végé</i><b>9,00 €</b></button>
+          <p class="choix-groupe">Gourmandes</p>
+          <button role="radio" aria-checked="false" data-k="royale"><span>Royale</span><b>10,00 €</b></button>
+          <button role="radio" aria-checked="false" data-k="kafta"><span>Kafta</span><b>11,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="poulet"><span>Poulet</span><b>11,50 €</b></button>
+          <button role="radio" aria-checked="false" data-k="falafel"><span>Falafel</span><i class="vg" title="Vegan">vegan</i><b>11,50 €</b></button>
+        </div>
+        <div class="fiche" aria-live="polite">
+          <h3 id="kNom">Kaakeh zaatar</h3>
+          <p id="kDesc">Thym, sumac, sésame et huile d’olive, avec tomates, menthe et olives.</p>
+          <ul class="ingredients" id="kIng"></ul>
+          <p class="formule-hint" id="kFormule">En formule classique : <b>15 €</b> avec une entrée ou un dessert, et une boisson.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── LA CARTE ───────── -->
+<section class="carte" id="carte">
+  <div class="cadre">
+    <div class="entete entete-ligne">
+      <div><p class="sur-titre">Notre menu</p><h2 class="titre titre-anime">La carte</h2></div>
+      <p class="rv">Un voyage de saveurs au cœur de Beyrouth. Tout est fait maison, et chaque bouchée a le goût du Liban.</p>
+    </div>
+    <div class="formules">
+      <article class="formule rv">
+        <p class="formule-nom">Formule classique</p>
+        <p class="formule-prix">15<span>€</span></p>
+        <p>Une kaakeh classique, une entrée <em>ou</em> un dessert, et une boisson.</p>
+      </article>
+      <article class="formule formule-fonce rv">
+        <p class="formule-nom">Formule gourmande</p>
+        <p class="formule-prix">17<span>€</span></p>
+        <p>Une kaakeh gourmande, une entrée <em>ou</em> un dessert, et une boisson.</p>
+      </article>
+      <p class="formule-note rv">Entrée : houmous, labneh ou caviar d’aubergines. Dessert : sfouf ou nammoura. Bière libanaise : +2&nbsp;€.</p>
+    </div>
+    <div class="colonnes">
+      <div class="col rv">
+        <h3>Entrées</h3>
+        <dl>
+          <div><dt>Houmous <i class="vg">vegan</i></dt><dd>6,00 €</dd><dd class="desc">Pois chiches, tahini, citron, ail et huile d’olive.</dd></div>
+          <div><dt>Labneh <i class="vt">végé</i></dt><dd>6,00 €</dd><dd class="desc">Fromage frais et crémeux à base de yaourt.</dd></div>
+          <div><dt>Caviar d’aubergine <i class="vt">végé</i></dt><dd>6,00 €</dd><dd class="desc">Aubergines grillées au tahini, yaourt, citron, ail et huile d’olive.</dd></div>
+        </dl>
+      </div>
+      <div class="col rv">
+        <h3>Desserts</h3>
+        <dl>
+          <div><dt>Kaakeh chocolat <i class="vt">végé</i></dt><dd>6,00 €</dd><dd class="desc">Galette garnie de chocolat.</dd></div>
+          <div><dt>Chocolat & halawa <i class="vt">végé</i></dt><dd>6,50 €</dd><dd class="desc">Avec halawa, confiserie au tahini et au sucre.</dd></div>
+          <div><dt>Sfouf <i class="vg">vegan</i></dt><dd>5,50 €</dd><dd class="desc">Gâteau moelleux de semoule au curcuma et à l’anis.</dd></div>
+          <div><dt>Nammoura <i class="vt">végé</i></dt><dd>5,50 €</dd><dd class="desc">Semoule à la fleur d’oranger et sirop (contient du yaourt).</dd></div>
+        </dl>
+      </div>
+      <div class="col rv">
+        <h3>Boissons</h3>
+        <dl class="dl-court">
+          <div><dt>Eau 50 cl</dt><dd>1,50 €</dd></div>
+          <div><dt>Soft 33 cl</dt><dd>2,50 €</dd></div>
+          <div><dt>Bière libanaise 33 cl</dt><dd>4,50 €</dd></div>
+          <div><dt>Café espresso</dt><dd>1,50 €</dd></div>
+          <div><dt>Café allongé</dt><dd>3,00 €</dd></div>
+          <div><dt>Thé</dt><dd>3,50 €</dd></div>
+          <div><dt>Infusion</dt><dd>3,50 €</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="gourmandises">
+      <figure class="gm rv"><picture><source type="image/avif" srcset="/img/mezze-320.avif 320w, /img/mezze-480.avif 480w, /img/mezze-720.avif 720w, /img/mezze-960.avif 894w" sizes="(max-width: 760px) 44vw, 22vw"><img src="/img/mezze-960.jpg" alt="Pain trempé dans le houmous" width="894" height="1194" loading="lazy"></picture><figcaption>Houmous & pain chaud</figcaption></figure>
+      <figure class="gm rv"><picture><source type="image/avif" srcset="/img/plateau-320.avif 320w, /img/plateau-480.avif 480w, /img/plateau-720.avif 720w, /img/plateau-960.avif 894w" sizes="(max-width: 760px) 44vw, 22vw"><img src="/img/plateau-960.jpg" alt="Plateau de kaakeh, houmous et labneh" width="894" height="1194" loading="lazy"></picture><figcaption>Kaakeh & labneh</figcaption></figure>
+      <figure class="gm rv"><picture><source type="image/avif" srcset="/img/sfouf-320.avif 320w, /img/sfouf-480.avif 480w, /img/sfouf-720.avif 720w, /img/sfouf-960.avif 894w" sizes="(max-width: 760px) 44vw, 22vw"><img src="/img/sfouf-960.jpg" alt="Part de sfouf à l’amande" width="894" height="1136" loading="lazy"></picture><figcaption>Sfouf, vegan</figcaption></figure>
+      <figure class="gm rv"><picture><source type="image/avif" srcset="/img/cafe-320.avif 320w, /img/cafe-480.avif 480w, /img/cafe-720.avif 720w, /img/cafe-960.avif 894w" sizes="(max-width: 760px) 44vw, 22vw"><img src="/img/cafe-960.jpg" alt="Tasse de café" width="894" height="1194" loading="lazy"></picture><figcaption>Le café pour finir</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── AVIS ───────── -->
+<section class="avis" id="avis">
+  <div class="cadre avis-grille">
+    <div class="avis-note">
+      <p class="sur-titre">Ils en parlent</p>
+      <p class="note"><span data-compte="4.9">4,9</span><small>/5</small></p>
+      <p class="note-etoiles" aria-hidden="true">★★★★★</p>
+      <p class="note-src"><span data-compte="176">176</span> avis sur Google</p>
+      <a class="btn btn-contour" href="https://www.google.com/maps/place/Olea/@47.215622,-1.5532891,17z/data=!4m8!3m7!1s0x4805efb4f4a53959:0x3f420d3916e6de6c!8m2!3d47.215622!4d-1.5532891!9m1!1b1" target="_blank" rel="noopener">Lire les avis <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <div class="avis-liste">
+      <blockquote class="avis-carte rv"><p>« Nous avons pris la formule gourmande, un kaaké kefta avec le labneh : beaucoup de saveurs, c’était très bien préparé. Le personnel est souriant. »</p><footer>Lina N. · Avis Google</footer></blockquote>
+      <blockquote class="avis-carte rv"><p>« Les prix sont très raisonnables, les plats sont délicieux (surtout les kaakehs gourmandes) et pleins de saveurs. »</p><footer>Paul E. · Avis Google</footer></blockquote>
+      <blockquote class="avis-carte rv"><p>« Une cuisine qui te donne l’impression d’être au soleil, vue sur la Méditerranée. »</p><footer>Romain L. · Avis Google</footer></blockquote>
+      <blockquote class="avis-carte rv"><p>« Super adresse pour la street food libanaise, une vraie pépite ! La labneh, hyper bonne, bien crémeuse. »</p><footer>Pierre G. · Avis Google</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── LE LIEU ───────── -->
+<section class="lieu" id="lieu">
+  <div class="cadre">
+    <div class="entete entete-ligne">
+      <div><p class="sur-titre">Le lieu</p><h2 class="titre titre-anime">Pierre, bois <em>& lumière</em></h2></div>
+      <p class="rv">Au cœur du Bouffay, une salle en vieilles pierres, des poutres apparentes et une terrasse sous les parasols rouges.</p>
+    </div>
+    <div class="bento">
+      <figure class="bt bt-1 devoile"><picture><source type="image/avif" srcset="/img/salle-320.avif 320w, /img/salle-480.avif 480w, /img/salle-720.avif 720w, /img/salle-960.avif 960w" sizes="(max-width: 760px) 92vw, 44vw"><img src="/img/salle-960.jpg" alt="La seconde salle voûtée en pierre, tables en bois" width="960" height="1282" loading="lazy"></picture><figcaption>La seconde salle</figcaption></figure>
+      <figure class="bt bt-2 devoile"><picture><source type="image/avif" srcset="/img/couloir-320.avif 320w, /img/couloir-480.avif 480w, /img/couloir-720.avif 720w, /img/couloir-960.avif 894w" sizes="(max-width: 760px) 44vw, 22vw"><img src="/img/couloir-960.jpg" alt="Couloir aux poutres apparentes" width="894" height="1194" loading="lazy"></picture><figcaption>Les poutres</figcaption></figure>
+      <figure class="bt bt-3 devoile"><picture><source type="image/avif" srcset="/img/neon-320.avif 320w, /img/neon-480.avif 480w, /img/neon-720.avif 720w, /img/neon-960.avif 960w" sizes="(max-width: 760px) 44vw, 22vw"><img src="/img/neon-960.jpg" alt="Le nom Olea en néon sur un mur de pierre" width="960" height="1201" loading="lazy"></picture><figcaption>Bienvenue</figcaption></figure>
+      <div class="bt bt-4 groupe rv">
+        <p class="sur-titre">Groupes & tablées</p>
+        <h3>Une deuxième salle se cache chez nous.</h3>
+        <p>Sous la voûte en pierre, l’endroit idéal pour vos repas en groupe. Appelez-nous pour réserver.</p>
+        <a class="btn btn-plein" href="tel:+33625488467">06 25 48 84 67</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── INFOS ───────── -->
+<section class="infos" id="infos">
+  <div class="cadre infos-grille">
+    <div>
+      <p class="sur-titre">Infos pratiques</p>
+      <h2 class="titre titre-anime">Venir chez <em>Olea</em></h2>
+      <p class="statut statut-grand" data-statut><i></i><span data-statut-long>Horaires</span></p>
+      <table class="horaires" id="horaires">
+        <caption class="sr">Horaires d’ouverture</caption>
+        <tbody>
+          <tr data-j="2"><th scope="row">Mardi</th><td>12h – 14h30 · 19h – 21h30</td></tr>
+          <tr data-j="3"><th scope="row">Mercredi</th><td>12h – 14h30 · 19h – 21h30</td></tr>
+          <tr data-j="4"><th scope="row">Jeudi</th><td>12h – 14h30 · 19h – 21h30</td></tr>
+          <tr data-j="5"><th scope="row">Vendredi</th><td>12h – 15h · 19h – 22h</td></tr>
+          <tr data-j="6"><th scope="row">Samedi</th><td>12h – 15h · 19h – 22h</td></tr>
+          <tr data-j="0"><th scope="row">Dimanche</th><td class="ferme">Fermé</td></tr>
+          <tr data-j="1"><th scope="row">Lundi</th><td class="ferme">Fermé</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="infos-droite">
+      <div class="carte-geo" id="carteGeo">
+        <div class="carte-geo-fond" aria-hidden="true">
+          <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#F6F1E7" stroke-linecap="round"><path stroke-opacity=".16" stroke-width="16" d="M-20 330C120 310 230 250 330 228S520 180 640 130"/><g stroke-opacity=".3" stroke-width="2"><path d="M-20 110 640 180M100 -20 220 460M420 -20 340 460M-20 410 640 380M510 -20 600 460M-20 230 300 190"/><path d="M190 -20c18 110 70 170 120 200s58 120 40 280"/></g></g></svg>
+          <span class="repere"><img src="/img/olea-cream.svg" alt="" width="70" height="34"></span>
+        </div>
+        <button class="btn btn-clair carte-geo-btn" id="chargerCarte" type="button">Afficher la carte Google</button>
+        <p class="carte-geo-note">La carte se charge depuis Google uniquement si vous cliquez.</p>
+      </div>
+      <ul class="contacts">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span><small>Adresse</small>16 rue de la Juiverie, 44000 Nantes</span><a class="btn btn-contour btn-s" href="https://www.google.com/maps/dir/?api=1&destination=Olea+16+rue+de+la+Juiverie+44000+Nantes" target="_blank" rel="noopener">Itinéraire</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><small>Téléphone · réservation</small><a href="tel:+33625488467">06 25 48 84 67</a></span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg><span><small>Instagram</small><a href="https://www.instagram.com/olea.nantes/" target="_blank" rel="noopener">@olea.nantes</a></span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.5 11h-13zM8 9V7a4 4 0 0 1 8 0v2"/></svg><span><small>Sur place ou à emporter</small>Mardi → samedi, midi et soir</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pied">
+  <div class="cadre">
+    <div class="pied-haut">
+      <p class="pied-phrase">Kaakeh, mezzés & douceurs.<br>On vous attend rue de la Juiverie.</p>
+      <nav class="pied-liens" aria-label="Liens du pied de page">
+        <a href="#kaakeh">La kaakeh</a><a href="#carte">La carte</a><a href="#lieu">Le lieu</a><a href="#infos">Horaires</a><a href="https://www.instagram.com/olea.nantes/" target="_blank" rel="noopener">Instagram</a><a href="tel:+33625488467">Appeler</a>
+      </nav>
+    </div>
+    <svg class="pied-wm" id="piedWm" viewBox="0 0 590 282" role="img" aria-label="Olea"></svg>
+    <div class="pied-bas">
+      <span>© 2026 Olea · Cuisine libanaise · 16 rue de la Juiverie, 44000 Nantes</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="https://vokumagency.com" target="_blank" rel="noopener">Site par Vokum</a></span>
+    </div>
+  </div>
+</footer>
+
+<nav class="barre-mobile" id="barreMobile" aria-label="Actions rapides">
+  <a href="tel:+33625488467"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Olea+16+rue+de+la+Juiverie+44000+Nantes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Itinéraire</a>
+</nav>
+
+<script src="/js/main.min.js?v=1794843853" defer></script>
+</body>
+</html>
